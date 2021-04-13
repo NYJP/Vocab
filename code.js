@@ -1,4 +1,4 @@
-var size = 150;
+var size = 450;
 
 var file = txttoarray(readFile("vocab.csv"));
 

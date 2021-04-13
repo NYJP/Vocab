@@ -1,8 +1,8 @@
 :root {
-    --boxorline: 150px;
+    --boxorline: 450px;
     --boxorlineele: block;
-    --size: 150px;
-    --fsize: 15px;
+    --size: 450px;
+    --fsize: 45px;
 }
 
 .boxelements{
@@ -13,7 +13,6 @@
     float: left;
     background-color: grey;
     border-style: solid;
-    font-size: var(--fsize);
     width: var(--size);
     height: var(--boxorline);
     margin:5px;
@@ -23,6 +22,8 @@
 #zoomin, #zoomout{
     margin-top:10px;
     margin-left:10px;
-    width: 30px;
-    height: 30px;
+}
+
+body, button, #searchbar{
+    font-size: var(--fsize);
 }
