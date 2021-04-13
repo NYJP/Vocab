@@ -1,6 +1,8 @@
 :root {
     --boxorline: 150px;
-    --boxorlineele: '';
+    --boxorlineele: block;
+    --size: 150px;
+    --fsize: 15px;
 }
 
 .boxelements{
@@ -11,8 +13,16 @@
     float: left;
     background-color: grey;
     border-style: solid;
-    width:150px;
+    font-size: var(--fsize);
+    width: var(--size);
     height: var(--boxorline);
     margin:5px;
     padding: 10px;
+}
+
+#zoomin, #zoomout{
+    margin-top:10px;
+    margin-left:10px;
+    width: 30px;
+    height: 30px;
 }

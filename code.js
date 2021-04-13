@@ -1,3 +1,5 @@
+var size = 150;
+
 var file = txttoarray(readFile("vocab.csv"));
 
 for (var l=0; l<file.length; l++){
@@ -58,16 +60,36 @@ function display(){
     
 }
 
+function updateview(){
+    document.documentElement.style.setProperty('--size',String(size) +'px');
+    document.documentElement.style.setProperty('--fsize',String(size/10) +'px');
+
+    if (document.getElementById('mode').innerHTML == 'Mode: List'){
+        document.documentElement.style.setProperty('--boxorline',String(size/15*2) +'px');
+    }else{
+        document.documentElement.style.setProperty('--boxorline',String(size) +'px');
+    }
+}
+
 document.getElementById('mode').onclick = function(){
     if (document.getElementById('mode').innerHTML == 'Mode: Box'){
         document.documentElement.style.setProperty('--boxorlineele','none');
-        document.documentElement.style.setProperty('--boxorline','23px');
         document.getElementById('mode').innerHTML = 'Mode: List';
     }else{
-        document.documentElement.style.setProperty('--boxorlineele','');
-        document.documentElement.style.setProperty('--boxorline','150px');
+        document.documentElement.style.setProperty('--boxorlineele','block');
         document.getElementById('mode').innerHTML = 'Mode: Box';
     }
+    updateview()
+}
+
+document.getElementById('zoomin').onclick = function(){
+    size+=30;
+    updateview()
+}
+
+document.getElementById('zoomout').onclick = function(){
+    if (size > 100) size-=30;
+    updateview()
 }
 
 display();
