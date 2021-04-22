@@ -1,5 +1,5 @@
 var size = 450;
-
+var trans = 0.6;
 var file = txttoarray(readFile("vocab.csv"));
 
 for (var l=0; l<file.length; l++){
@@ -63,7 +63,8 @@ function display(){
 function updateview(){
     document.documentElement.style.setProperty('--size',String(size) +'px');
     document.documentElement.style.setProperty('--fsize',String(size/10) +'px');
-
+    document.documentElement.style.setProperty('--trans',String(trans));
+    
     if (document.getElementById('mode').innerHTML == 'Mode: List'){
         document.documentElement.style.setProperty('--boxorline',String(size/15*2) +'px');
     }else{
@@ -82,14 +83,12 @@ document.getElementById('mode').onclick = function(){
     updateview()
 }
 
-document.getElementById('zoomin').onclick = function(){
-    size+=30;
+document.getElementById('volume').onchange = function() {
+    size = this.value;
     updateview()
 }
 
-document.getElementById('zoomout').onclick = function(){
-    if (size > 100) size-=30;
+document.getElementById('trans').onchange = function() {
+    trans = this.value / 100;
     updateview()
 }
-
-display();
